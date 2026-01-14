@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avokat Arsim Jahja - Gostivar | Shërbime Juridike Profesionale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Serif+Pro&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset dhe Variablat */
+        :root {
+            --primary: #1a365d;
+            --secondary: #d4af37;
+            --accent: #2d3748;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #718096;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Serif Pro', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        /* LOGO DESIGN - Integrimi i logo-së së re */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-graphic {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.1;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-subtitle {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 3px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo-divider {
+            height: 3px;
+            width: 40px;
+            background-color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        /* Versioni i thjeshtë i logo-së për mobile */
+        .logo-simple {
+            display: none;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            left: 0;
+            bottom: -5px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(26, 54, 93, 0.8)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sections Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: var(--secondary);
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Shërbimet */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            background-color: var(--primary);
+            color: white;
+            font-size: 2.5rem;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Rreth Nesh */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Kontakt */
+        .contact-container {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* Logo në Footer */
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo .logo-main {
+            color: white;
+            font-size: 1.6rem;
+        }
+
+        .footer-logo .logo-subtitle {
+            color: #ccc;
+        }
+
+        .footer-logo .logo-divider {
+            background-color: var(--secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            /* Logo responsive */
+            .logo-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .logo-graphic {
+                display: none;
+            }
+            
+            .logo-simple {
+                display: block;
+            }
+            
+            .logo-text {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-simple {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <div class="logo-graphic">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-main">AVOKAT<br>ARSIM JAHJA</div>
+                        <div class="logo-subtitle">Gostivar | Shërbime Juridike</div>
+                        <div class="logo-divider"></div>
+                    </div>
+                    <div class="logo-simple">AVOKAT ARSIM JAHJA</div>
+                </div>
+                
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Kryefaqja</a></li>
+                    <li><a href="#about">Rreth Nesh</a></li>
+                    <li><a href="#services">Shërbimet</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Zëri Juaj Para Ligjit</h2>
+                <p>Ofrojmë shërbime juridike profesionale në Gostivar dhe mbarë Maqedoninë e Veriut. Mbrojtje, këshillim dhe përfaqësim në çdo lloj çështje ligjore.</p>
+                <p><strong>Drejtësi, Siguri dhe Besim - në çdo hap</strong></p>
+                <a href="#contact" class="cta-button">KONTAKTONI TANI</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shërbimet -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Shërbimet Tona</h2>
+                <p>Ofrojmë një gamë të plotë shërbimesh juridike për klientët tanë, me përvojë të gjerë në të gjitha fushat e së drejtës.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Mbrojtje Penale</h3>
+                        <p>Përfaqësim dhe mbrojtje në procedurat penale, me eksperiencë në çështje komplekse të drejtësisë penale.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Këshillim Juridik</h3>
+                        <p>Këshilla juridike për individë dhe biznese, ndihmë në interpretimin dhe zbatimin e ligjeve.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Përfaqësim Gjyqësor</h3>
+                        <p>Përfaqësim para të gjitha instancave gjyqësore, përgatitje e dokumentacionit dhe ndjekje e procesit.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Kontrata dhe Dokumente</h3>
+                        <p>Përgatitje dhe rishikim i kontratave, marrëveshjeve dhe dokumenteve të tjera ligjore.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Pronë</h3>
+                        <p>Kujdes për çështjet e pronësisë, trashëgimisë dhe ndaj pasurive të patundshme.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Ligji i Biznesit</h3>
+                        <p>Asistencë për bizneset në çështjet e regjistrimit, taksave, punësimit dhe marrëdhënieve kontraktuale.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rreth Nesh -->
+    <section id="about" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Rreth Nesh</h2>
+                <p>Avokat Arsim Jahja është një zyrë juridike me përvojë të gjerë në ofrimin e shërbimeve ligjore në Gostivar dhe rajon.</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Eksperiencë dhe Profesionalizëm</h3>
+                    <p>Me një karrierë të gjatë në fushën e së drejtës, <strong>Avokat Arsim Jahja</strong> ka ndihmuar qindra klientë në zgjidhjen e çështjeve të tyre ligjore. Fokusi kryesor është ofrimi i shërbimeve me cilësi të lartë, duke siguruar që çdo klient të trajtohet me respekt dhe profesionalizëm.</p>
+                    <p>Ne besojmë në drejtësi, transparencë dhe etikë në punën tonë. Qëllimi ynë është të ofrojmë përfaqësim të shkëlqyer ligjor duke u përshtatur nevojave unike të secilit klient.</p>
+                    <p>Zyra jonë ofron asistencë në të gjitha fushat e së drejtës, duke përfshirë të drejtën penale, civile, familjare, pronësore dhe të biznesit.</p>
+                    
+                    <div style="margin-top: 30px;">
+                        <a href="#contact" class="cta-button">Kërko Konsultë</a>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <div style="background-color: var(--primary); height: 400px; display: flex; align-items: center; justify-content: center; color: white; padding: 20px;">
+                        <div style="text-align: center;">
+                            <!-- Logo e madhe në seksionin Rreth Nesh -->
+                            <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 20px;">
+                                AVOKAT<br>ARSIM JAHJA
+                            </div>
+                            <div style="height: 4px; width: 80px; background-color: var(--secondary); margin: 0 auto 20px;"></div>
+                            <p style="font-size: 1.2rem; margin-bottom: 30px;">Profesionist me integritet dhe përvojë</p>
+                            <div style="font-size: 5rem;">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Na Kontaktoni</h2>
+                <p>Jemi të disponueshëm për konsulta dhe asistence juridike. Na kontaktoni për një takim apo këshillë.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Informacion Kontakti</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Telefoni</h4>
+                                <p style="font-size: 1.2rem; font-weight: 700; color: var(--primary);">++389 77 822 777</p>
+                                <p>E hënë - E shtunë: 8:00 - 18:00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Adresa</h4>
+                                <p>Gostivar, Maqedonia e Veriut</p>
+                                <p>Zyra juridike</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>arsimjahja@gmail.com</p>
+                                <p>Përgjigjemi brenda 24 orëve</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h3>Orari i Punës</h3>
+                        <p><strong>E hënë - E premte:</strong> 8:00 - 18:00</p>
+                        <p><strong>E shtunë:</strong> 9:00 - 14:00</p>
+                        <p><strong>E diel:</strong> Me takim</p>
+                        <p style="margin-top: 15px; font-style: italic;">Takimet jashtë orarit të punës mund të rregullohen paraprakisht me marrëveshje.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <div class="contact-card">
+                        <h3>Dërgoni Mesazh</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Emri i Plotë *</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Numri i Telefonit *</label>
+                                <input type="tel" id="phone" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Adresa</label>
+                                <input type="email" id="email" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subjekti *</label>
+                                <select id="subject" class="form-control" required>
+                                    <option value="">Zgjidhni një subjekt</option>
+                                    <option value="penal">Çështje Penale</option>
+                                    <option value="civil">Çështje Civile</option>
+                                    <option value="family">Çështje Familjare</option>
+                                    <option value="property">Çështje Pronësore</option>
+                                    <option value="business">Çështje Biznesi</option>
+                                    <option value="other">Tjetër</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Mesazhi *</label>
+                                <textarea id="message" class="form-control" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="cta-button" style="width: 100%;">DËRGONI MESAZHIN</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="logo-main" style="color: white;">AVOKAT<br>ARSIM JAHJA</div>
+                        <div class="logo-subtitle" style="color: #ccc;">Gostivar | Shërbime Juridike</div>
+                        <div class="logo-divider"></div>
+                    </div>
+                    <p>Zyrë juridike me përvojë në ofrimin e shërbimeve ligjore në Gostivar dhe rajon. Jemi këtu për t'ju ndihmuar në çdo çështje ligjore.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Shërbimet</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Mbrojtje Penale</a></li>
+                        <li><a href="#services">Këshillim Juridik</a></li>
+                        <li><a href="#services">Përfaqësim Gjyqësor</a></li>
+                        <li><a href="#services">Kontrata dhe Dokumente</a></li>
+                        <li><a href="#services">Çështje Pronësore</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Lidhja e Shpejtë</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Kryefaqja</a></li>
+                        <li><a href="#about">Rreth Nesh</a></li>
+                        <li><a href="#services">Shërbimet</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Kontakt</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone-alt" style="margin-right: 10px;"></i> ++389 77 822 777</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Gostivar, Maqedonia e Veriut</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> arsimjahja@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Avokat Arsim Jahja - Gostivar. Të gjitha të drejtat e rezervuara.</p>
+                <p style="margin-top: 5px;">Drejtësi, Siguri dhe Besim - në çdo hap</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Smooth scrolling për navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Mbyll menunë mobile nëse është hapur
+                document.querySelector('.nav-links').classList.remove('active');
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission simulation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Merr vlerat nga form
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            
+            // Simulimi i dërgimit të formës
+            alert(`Faleminderit ${name}! Mesazhi juaj është dërguar me sukses. Do t'ju kontaktojmë në numrin ${phone} për çështjen tuaj ${subject}.`);
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Dinamikisht ndryshon header kur scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
